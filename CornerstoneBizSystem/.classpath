@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/aviator-2.3.3.jar"/>
+	<classpathentry kind="lib" path="lib/aws-java-sdk-core-1.11.770.jar"/>
+	<classpathentry kind="lib" path="lib/aws-java-sdk-kms-1.11.770.jar"/>
+	<classpathentry kind="lib" path="lib/aws-java-sdk-s3-1.11.770.jar"/>
+	<classpathentry kind="lib" path="lib/commons-collections-3.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/CornerstoneLibrary-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-ext-tables-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-formatter-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-util-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/hutool-all-5.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/ikanalyzer-2012_u6.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.9.10.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.9.10.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.9.10.3.jar"/>
+	<classpathentry kind="lib" path="lib/Java-WebSocket-1.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/jsch.agentproxy.core-0.0.7.jar"/>
+	<classpathentry kind="lib" path="lib/jsch.agentproxy.svnkit-trilead-ssh2-0.0.7.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-highlighter-7.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-join-7.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-memory-7.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/ooxml-schemas-1.3.jar"/>
+	<classpathentry kind="lib" path="lib/pageoffice5.1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/pinyin4j-2.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/scala-library-2.9.2.jar"/>
+	<classpathentry kind="lib" path="lib/scalocity-0.9.jar"/>
+	<classpathentry kind="lib" path="lib/svnkit-1.8.11.jar"/>
+	<classpathentry kind="lib" path="lib/trilead-ssh2-1.0.0-build220.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-analyzers-common-7.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-core-7.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-queries-7.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-queryparser-7.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/jazmin.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

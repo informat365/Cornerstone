@@ -1,0 +1,13 @@
+#!/bin/sh
+export LANG="zh_CN.UTF-8"
+
+REPOS="$1"
+TXN="$2"
+svnlook_log=`svnlook log $REPOS -t $TXN` 
+content=`echo """${svnlook_log}"""|base64`
+ret=`curl -d """${content}"""  -H 'Content-Type: application/text' https://pm.itit.io/p/webapi/svn_pre_commit/f74dbf3e0cec44479ec9223df230dd52`
+if [ $ret -eq '0' ];then
+	exit 0;
+fi
+echo -e "please input task ID #xxxxxx" 1>&2 
+exit -1

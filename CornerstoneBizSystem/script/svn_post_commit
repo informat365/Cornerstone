@@ -1,0 +1,16 @@
+#!/bin/sh
+export LANG="zh_CN.UTF-8"
+
+REPOS="$1"
+REV="$2"
+svnrepos=`echo $REPOS|base64`
+svnrev=`echo $REV|base64`
+svnlook_comment=`svnlook log -r $REV $REPOS | base64` 
+svnlook_author=`svnlook author -r $REV $REPOS |base64`
+svnlook_changed=`svnlook changed -r $REV $REPOS |base64`
+svnlook_diff=`svnlook diff -r $REV $REPOS|base64`
+
+svnlook_log="$svnrepos#$svnrev#$svnlook_author#$svnlook_comment#$svnlook_diff#$svnlook_changed"
+
+curl -d "${svnlook_log}"  -H 'Content-Type: application/text' https://pm.itit.io/p/webapi/svn_commit/f74dbf3e0cec44479ec9223df230dd52
+exit 0 

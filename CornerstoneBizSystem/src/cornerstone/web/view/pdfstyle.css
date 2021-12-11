@@ -1,0 +1,169 @@
+body {
+  padding: 22px 15px 40px;
+  min-height: 200px;
+  outline: none;
+  cursor: text;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  line-height:1.7;
+  font-size: 13px;
+}
+a.selected {
+  background: #b3d4fd;
+}
+a.simditor-mention {
+  cursor: pointer;
+}
+table {
+  position: relative;
+}
+
+pre {
+  /*min-height: 28px;*/
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  word-wrap: break-word !important;
+  white-space: pre-wrap !important;
+}
+img {
+  cursor: pointer;
+}
+img.selected {
+  box-shadow: 0 0 0 4px #cccccc;
+}
+
+
+h1, h2,h3,h4,h5,h6{
+  font-weight: bold;
+  margin: 40px 0 20px;
+  color: #333;
+}
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 22px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 16px;
+}
+ p, div{
+  word-wrap: break-word;
+  margin: 0 0 0px 0;
+  color: #333;
+  word-wrap: break-word;
+}
+b, strong{
+  font-weight: bold;
+}
+i, em {
+  font-style: italic;
+}
+u {
+  text-decoration: underline;
+}
+ strike,del {
+  text-decoration: line-through;
+}
+ul, ol {
+  list-style: disc outside none;
+  margin: 15px 0;
+  padding: 0 0 0 40px;
+  line-height: 1.6;
+}
+ ul li{
+  list-style-type: inherit;
+}
+ul ul, ul ol, ol ul, ol ol {
+  padding-left: 30px;
+}
+ ul ul,ol ul{
+  list-style: circle outside none;
+}
+ul ul ul, ol ul ul, ul ul ul, ol ul ul {
+  list-style: square outside none;
+}
+ol {
+  list-style: decimal;
+}
+blockquote {
+  border-left: 6px solid #ddd;
+  padding: 5px 0 5px 10px;
+  margin: 15px 0 15px 15px;
+}
+blockquote > :first-child, .editor-style blockquote > :first-child {
+  margin-top: 0;
+}
+code{
+  display: inline-block;
+  padding: 0 4px;
+  margin: 0 5px;
+  background: #eeeeee;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: 'monaco', 'Consolas', "Liberation Mono", Courier, monospace;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+pre {
+  padding: 10px 5px 10px 10px;
+  margin: 15px 0;
+  display: block;
+  line-height: 18px;
+  background: #F0F0F0;
+  border-radius: 3px;
+  font-size: 13px;
+  font-family: 'monaco', 'Consolas', "Liberation Mono", Courier, monospace;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+}
+ pre code {
+  display: block;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border-radius: 0;
+}
+hr {
+  display: block;
+  height: 0px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 15px 0;
+  padding: 0;
+}
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 15px 0;
+}
+table thead {
+  background-color: #f9f9f9;
+}
+ table td,table th {
+  min-width: 40px;
+  height: 30px;
+  border: 1px solid #ccc;
+  vertical-align: top;
+  padding: 2px 4px;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+img {
+  margin: 0 5px;
+  vertical-align: middle;
+}

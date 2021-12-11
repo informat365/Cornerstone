@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="CornerstoneBizSystem" basedir="."
+         xmlns:sonar="antlib:org.sonar.ant"
+         default="all">
+    <!-- scp task-->
+    <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+    <!-- -->
+    <property name="project.root" value="${basedir}"/>
+    <property file="build.properties"/>
+    <!-- build no.-->
+    <tstamp>
+        <format property="release_date" pattern="yyyyMMddHHmm"/>
+    </tstamp>
+    <!-- src dir-->
+    <property name="src.dir" value="${project.root}/src"/>
+    <property name="lib.dir" value="${project.root}/lib"/>
+    <property name="webroot.dir" value="${project.root}/webroot"/>
+
+    <!-- build dir -->
+    <property name="build.dir" value="${project.root}/build"/>
+    <property name="build.lib.dir" value="${build.dir}/lib"/>
+    <property name="build.classes.dir" value="${build.dir}/classes"/>
+
+    <!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
+
+    <!-- Java CLASSPATH -->
+    <path id="master-classpath">
+        <fileset dir="${lib.dir}"/>
+    </path>
+    <!-- =================================================================== -->
+    <!-- clean release directory -->
+    <!-- =================================================================== -->
+    <target name="clean" description="clean all">
+        <delete dir="${release.dir}"/>
+        <delete dir="${build.dir}"/>
+    </target>
+
+
+    <!-- =================================================================== -->
+    <!-- create build directory -->
+    <!-- =================================================================== -->
+    <target name="init" depends="" description="">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.classes.dir}"/>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- compile java code -->
+    <!-- =================================================================== -->
+    <target name="build" description="build java" depends="init">
+        <javac destdir="${build.classes.dir}"
+               source="1.8" target="1.8"
+               debug="true" encoding="utf-8"
+               deprecation="false"
+               optimize="false"
+               failonerror="true">
+            <src path="${src.dir}"/>
+            <classpath refid="master-classpath"/>
+        </javac>
+    </target>
+    <!-- =================================================================== -->
+    <!-- make jar file -->
+    <!-- =================================================================== -->
+    <target name="jar" description="" depends="build">
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${src.dir}">
+                <include name="**/*.p12"/>
+                <include name="**/*.dict"/>
+                <include name="**/*.dic"/>
+                <include name="**/*.xml"/>
+                <include name="**/*.css"/>
+                <include name="**/*.js"/>
+                <include name="**/*.html"/>
+                <include name="**/*.xlsx"/>
+            </fileset>
+        </copy>
+        <!--copy source file -->
+        <jar destfile="${release.dir}/${project.name}.jar">
+            <fileset dir="${build.classes.dir}">
+                <include name="**/*"/>
+            </fileset>
+            <manifest>
+                <attribute name="Implementation-Version"
+                           value="build${release_date}"/>
+                <attribute name="Implementation-Title" value="${project.name}"/>
+            </manifest>
+        </jar>
+
+        <copy todir="../CornerstoneBossSystem/lib">
+            <fileset dir="${release.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="../CornerstoneWebSystem/lib">
+            <fileset dir="${release.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+    </target>
+    <!-- =================================================================== -->
+    <!-- make release package -->
+    <!-- =================================================================== -->
+    <target name="package" depends="jar">
+        <echo>make jaz package</echo>
+        <delete dir="${release.dir}/${project.name}"/>
+        <mkdir dir="${release.dir}/${project.name}"/>
+        <unzip dest="${release.dir}/${project.name}">
+            <fileset dir="${lib.dir}">
+                <include name="**/*.jar"/>
+                <exclude name="jazmin.jar"/>
+            </fileset>
+            <fileset dir="${release.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </unzip>
+        <zip destfile="${release.dir}/${project.name}-1.0.jaz">
+            <fileset dir="${release.dir}/${project.name}">
+                <include name="**/*"/>
+            </fileset>
+        </zip>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- deoloy to remote server -->
+    <!-- =================================================================== -->
+
+    <target name="deploy" depends="clean,package">
+        <echo>deploy to ${deploy.dir}</echo>
+        <copy todir="${deploy.dir}">
+            <fileset dir="${release.dir}">
+                <include name="*.jaz"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="sonar" depends="clean,build">
+        <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+            <!-- Update the following line, or put the "sonar-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+        </taskdef>
+
+        <!-- Execute SonarQube Scanner for Ant Analysis -->
+        <sonar:sonar/>
+    </target>
+
+    <!-- =================================================================== -->
+    <!-- 部署项目 发布jar包 -->
+    <!-- =================================================================== -->
+    <target name="all" depends="clean,package">
+        <echo>build all</echo>
+    </target>
+</project>
