@@ -1,0 +1,14 @@
+<div class="minder-editor-container">
+    <!-- <div class="top-tab" top-tab="minder" editor="editor" ng-if="minder" ></div> -->
+    <div class="top-tab">
+        <div class="tab-content">
+            <div class="tab-pane active" new-top="minder" editor="editor" ng-if="minder" ></div>
+        </div>
+    </div>
+    
+    <div search-box minder="minder" ng-if="minder"></div>
+	<div class="minder-editor" style="top: 60px"></div>
+    <div class="km-note" note-editor minder="minder" ng-if="minder" style="top: 60px"></div>
+    <div class="note-previewer" note-previewer ng-if="minder"></div>
+    <div class="navigator" navigator minder="minder" ng-if="minder"></div>
+</div>

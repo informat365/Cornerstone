@@ -1,0 +1,40 @@
+.v-directive-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  visibility: visible;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 9999;
+
+  &-content {
+
+  }
+
+  &-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -5px;
+    border-width: 5px 5px 0;
+    border-color: transparent;
+    border-style: solid;
+    border-top-color: rgba(70, 76, 91, 0.9);
+    left: 50%;
+    margin-left: -5px;
+  }
+
+  &-inner {
+    max-width: 250px;
+    min-height: 34px;
+    padding: 8px 12px;
+    color: #fff;
+    text-align: left;
+    text-decoration: none;
+    background-color: rgba(70, 76, 91, 0.9);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  }
+}

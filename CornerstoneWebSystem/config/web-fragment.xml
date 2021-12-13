@@ -1,0 +1,5 @@
+<web-fragment>
+	<welcome-file-list>
+		<welcome-file>boss</welcome-file>
+	</welcome-file-list>
+</web-fragment>

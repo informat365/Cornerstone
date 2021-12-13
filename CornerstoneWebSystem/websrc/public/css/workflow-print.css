@@ -1,0 +1,177 @@
+
+*{
+    box-sizing: border-box;
+}
+@page {
+    size: auto;  /* auto is the initial value */
+    margin: 0mm; /* this affects the margin in the printer settings */
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    font-size:13px;
+    font-weight:400;
+    color:#2b2b2b;
+    height:100%;
+    line-height:1.6;
+    min-height:100% !important;
+    background: #fff !important;
+    cursor:default;
+    position: relative;
+    padding:40px;
+}
+pre{
+    word-break:break-all;
+    white-space: pre-line;
+}
+.form-no{
+    position:absolute;
+    top:20px;
+    left:20px;
+    color:#666;
+    font-size:14px;
+}
+.form-title{
+    text-align: center;
+    font-size:18px;
+    color:#333;
+    font-weight: bold;
+    padding:10px;
+}
+.form-subtitle{
+    text-align: center;
+    font-size:13px;
+    color:#666;
+    padding:10px;
+}
+input[type='radio']{
+    width: auto;
+}
+input[type='checkbox']{
+    width: auto;
+}
+.workflow-form{
+    padding:20px;
+    padding-right:0;
+}
+
+.form-item-box{
+    padding:20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-item-holder-width-25{
+    width:25%;
+}
+.form-item-holder-width-50{
+    width:50%;
+}
+.form-item-holder-width-75{
+    width:75%;
+}
+.form-item-holder-width-100{
+    width:100%;
+}
+.form-item-holder{
+    display: inline-block;
+    margin-bottom:15px;
+    padding-right:20px;
+}
+.form-item-title{
+    font-size:14px;
+    font-weight: bold;
+    color:#666;
+    margin-bottom:10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.form-item-desc{
+    font-size:12px;
+    color:#999;
+    margin-left:5px;
+    display: inline-block;
+}
+.form-item-holder-static-groupitem{
+    font-weight: bold;
+    color:#333;
+    font-size:16px;
+    margin: 15px 0;
+    padding-left:7px;
+    border-bottom:1px solid #eee;
+    position: relative;
+    padding-bottom:5px;
+}
+.form-item-holder-static-groupitem::before{
+    height:15px;
+    width:4px;
+    display: block;
+    background:  rgba(35,145,255,1);
+    content: '';
+    position: absolute;
+    top:4px;
+    left:0;
+}
+.form-item-holder-static-labelitem{
+    font-size:13px;
+    color:#333;
+}
+.form-item-holder-static-alert-success{
+    border: 1px solid #8ce6b0;
+    background-color: #edfff3;
+    font-size:13px;
+    padding:10px;
+}
+.form-item-holder-static-alert-warning{
+    border: 1px solid #ffd77a;
+    background-color: #fff9e6;
+    font-size:13px;
+    padding:10px;
+}
+.form-item-holder-static-alert-error{
+    border: 1px solid #ffb08f;
+    background-color: #ffefe6;
+    font-size:13px;
+    padding:10px;
+}
+.form-item-holder-static-alert-info{
+    border: 1px solid #abdcff;
+    background-color: #f0faff;
+    font-size:13px;
+    padding:10px;
+}
+
+.form-table th{
+    border-right:1px solid #555;
+    padding: 3px 5px;
+    font-weight: bold;
+    position: relative;
+    font-size:13px;
+    word-break: break-all;
+    height:24px;
+    background-color: #CCCCCC;
+}
+.form-table th:first-child{
+    border-left:1px solid #555;       
+}
+.form-table td{
+    border-right:1px solid #555;
+    font-size:13px;
+    padding: 3px 5px;
+    word-break: break-all;
+    height:24px;
+}
+.form-table td:first-child{
+    border-left:1px solid #555;
+}
+.form-table tr{
+    border-bottom:1px solid #555;
+}
+.form-table{
+    width:100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    table-layout: fixed;
+    border-top:1px solid #555;
+}

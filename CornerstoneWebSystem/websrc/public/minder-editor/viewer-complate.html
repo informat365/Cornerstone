@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CORNERSTONE - Minder Editor</title>
+
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="libs/codemirror/codemirror.css"/>
+    <link rel="stylesheet" href="libs/hotbox/hotbox.css"/>
+    <link rel="stylesheet" href="libs/kityminder-core/kityminder.core.css"/>
+    <link rel="stylesheet" href="libs/color-picker/color-picker.css"/>
+    <link rel="stylesheet" href="kityminder.editor.min.css">
+
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        h1.editor-title {
+            background: #393F4F;
+            color: white;
+            margin: 0;
+            height: 40px;
+            font-size: 14px;
+            line-height: 40px;
+            font-family: 'Hiragino Sans GB', 'Arial', 'Microsoft Yahei';
+            font-weight: normal;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+
+<body id="body" ng-app="kityminderDemo" ng-controller="MainController">
+<!-- <h1 class="editor-title">KityMinder Editor - Powered By FEX</h1> -->
+<kityminder-viewer on-init="initEditor(editor, minder)"></kityminder-viewer>
+</body>
+
+<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="libs/codemirror/codemirror.js"></script>
+<script src="libs/codemirror/mode/xml/xml.js"></script>
+<script src="libs/codemirror/mode/javascript/javascript.js"></script>
+<script src="libs/codemirror/mode/css/css.js"></script>
+<script src="libs/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="libs/codemirror/mode/markdown/markdown.js"></script>
+<script src="libs/codemirror/addon/mode/overlay.js"></script>
+<script src="libs/codemirror/mode/gfm/gfm.js"></script>
+<script src="libs/angular-ui-codemirror/ui-codemirror.min.js"></script>
+<script src="libs/marked/marked.min.js"></script>
+<script src="libs/kity/kity.min.js"></script>
+<script src="libs/hotbox/hotbox.min.js"></script>
+<script src="libs/json-diff/json-diff.js"></script>
+<script src="libs/kityminder-core/kityminder.core.min.js"></script>
+<script src="libs/color-picker/color-picker.min.js"></script>
+
+<script src="../js/dom-to-image.js"></script>
+<script src="../js/FileSaver.js"></script>
+
+<script src="kityminder.editor.min.js"></script>
+
+<script>
+    var _app = angular.module('kityminderDemo', ['kityminderEditor']);
+    _app.controller('MainController', function ($scope) {
+        _app._$scope = $scope;
+        $scope.initEditor = function (editor, minder) {
+            //与父级页面交互对象
+            window.editor = editor;
+            window.minder = minder;
+            //minder.disable();
+        };
+    });
+
+    var passiveSupported = false;
+    try {
+        var options = Object.defineProperty({}, "passive", {
+            get: function () {
+                passiveSupported = true;
+            }
+        });
+        window.addEventListener("test", null, options);
+    } catch (err) {
+    }
+    document.addEventListener("mousewheel", function (event) {
+        //禁止系统放大缩小等事件
+        event.preventDefault();
+    }, passiveSupported ? {passive: false} : false);
+
+    (function (w) {
+        var settings = {};
+        w.ThirdSettings = {
+            get: function (key) {
+                return settings[key]
+            },
+            set: function (key, value) {
+                if (typeof key == "string" && typeof value == "string") {
+                    return settings[key] = value;
+                } else {
+                    console && console.error && console.error("key & value must be string");
+                }
+            }
+        };
+    })(window);
+
+    window.getApp = function () {
+        return _app;
+    }
+
+    function capture(name) {
+        var target = document.getElementsByClassName("minder-viewer")[0];
+        console.log(target.offsetHeight, target.offsetWidth)
+        domtoimage.toSvg(target,{}).then(function (base64) {
+            var link = document.createElement('a');
+            link.download = name + '.svg';
+            link.href = base64;
+            link.click();
+        });
+
+    }
+</script>
+
+</html>

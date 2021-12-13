@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="CornerstoneWebSystem" basedir="." 
+	xmlns:ivy="antlib:fr.jayasoft.ivy.ant"
+	default="all">
+	<!-- scp task-->   
+	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
+	<!-- -->    
+	<property name="project.root" value="${basedir}" />
+	<property file="build.properties" />
+	<!-- build no.-->
+	<tstamp>
+		<format property="release_date" pattern="yyyyMMddHHmm" />
+	</tstamp>
+	<!-- src dir-->
+	<property name="src.dir" value="${project.root}/src" />
+	<property name="app.dir" value="${project.root}/app" />
+	<property name="lib.dir" value="${project.root}/lib" />
+	<property name="webroot.dir" value="${project.root}/webroot" />
+	<property name="config.dir" value="${project.root}/config" />
+	
+	<!-- build dir -->
+	<property name="build.dir" value="${project.root}/build" />
+	<property name="build.lib.dir" value="${build.dir}/lib" />
+	<property name="build.classes.dir" value="${build.dir}/classes" />
+	<!-- Java CLASSPATH -->
+	<path id="master-classpath">
+		<fileset dir="${lib.dir}" />
+	</path>
+	<!-- =================================================================== -->
+	<!-- clean release directory -->
+	<!-- =================================================================== -->
+	<target name="clean" description="clean all">
+		<delete dir="${release.dir}" />
+		<delete dir="${build.dir}" />
+	</target>
+
+
+	<!-- =================================================================== -->
+	<!-- create build directory -->
+	<!-- =================================================================== -->
+	<target name="init" depends="" description="">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.classes.dir}" />
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- compile java code -->
+	<!-- =================================================================== -->
+	<target name="build" description="build java" depends="init">
+		<javac destdir="${build.classes.dir}" 
+			source="1.8" target="1.8" 
+			debug="true" encoding="utf-8" 
+			deprecation="false" 
+			optimize="false"
+			failonerror="true">
+			<src path="${src.dir}" />
+			<classpath refid="master-classpath" />
+		</javac>
+	</target>
+	<!-- =================================================================== -->
+	<!-- make jar file -->
+	<!-- =================================================================== -->
+	<target name="jar" description="" depends="build">
+	   <jar destfile="${release.dir}/${project.name}.jar">
+			<fileset dir="${build.classes.dir}">
+				<include name="**/*" />
+			</fileset>
+			<manifest>
+				<attribute name="Implementation-Version" 
+					value="build${release_date}"/>
+				<attribute name="Implementation-Title" value="${project.name}"/>			
+			</manifest>
+		</jar>
+	</target>
+	
+	
+	
+	
+	<!-- =================================================================== -->
+	<!-- package footstone websystem -->
+	<!-- =================================================================== -->	
+	<target name="package-dir" depends="jar">
+		<mkdir dir="${release.dir}/${project.name}" />
+		<mkdir dir="${release.dir}/${project.name}/WEB-INF" />
+		<mkdir dir="${release.dir}/${project.name}/WEB-INF/lib" />
+		<copy todir="${release.dir}/${project.name}/WEB-INF/lib">  
+			<fileset dir="${release.dir}" >  
+				<include name="${project.name}.jar"/>  
+			</fileset>  
+		</copy>
+		<copy todir="${release.dir}/${project.name}/WEB-INF/">
+			 <fileset dir="${config.dir}">
+		     	<include name="**/*" />
+		     </fileset>	
+		</copy>
+		<copy todir="${release.dir}/${project.name}/WEB-INF/lib">  
+			 <fileset dir="${lib.dir}">
+			 	<include name="*.jar"/>
+				 <include name="*.lic" />
+				<exclude name="jazmin.jar"/>
+			 	<exclude name="junit-4.11.jar"/>
+			</fileset> 
+		</copy>
+		<copy todir="${release.dir}/${project.name}/">  
+		   <fileset dir="${webroot.dir}" >  
+		    <include name="**/*"/>  
+		   </fileset>  
+		</copy>  
+	</target>
+	<target name="package-war" depends="clean,package-dir">
+		<zip destfile="${release.dir}/${project.name}-1.0.war">
+					<fileset dir="${release.dir}/${project.name}">
+						<include name="**/*" />
+					</fileset>
+		</zip>
+	</target>
+
+	<!-- =================================================================== -->
+	<!-- deoloy to remote server -->
+	<!-- =================================================================== -->
+		
+	<target name="deploy" depends="clean,package-war">
+		<echo>deploy to ${deploy.dir}</echo>
+		<copy todir="${deploy.dir}">
+				<fileset dir="${release.dir}">
+					<include name="*.war" />
+				</fileset>
+			</copy>
+
+	</target>	
+	
+	<!-- =================================================================== -->
+	<!-- 部署项目 发布jar包 -->
+	<!-- =================================================================== -->    
+	<target name="all" depends="clean,package-war">
+		<echo>build all</echo>
+	</target>
+</project>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CORNERSTONE - Minder Viewer</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <link rel="stylesheet" href="libs/kityminder-core/kityminder.core.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #minder-view {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+
+    <script type="text/javascript" src="libs/kity/kity.min.js"></script>
+</head>
+
+<body>
+    <div id="minder-view"></div>
+
+    <script type="text/javascript" src="libs/kityminder-core/kityminder.core.min.js"></script>
+    <script type="text/javascript">
+        window.ProMinderViewer = function (data) {
+            var km = new kityminder.Minder({
+                renderTo: '#minder-view'
+            });
+            km.disable();
+            km.importJson(data);
+
+            return km;
+        }
+    </script>
+</body>
+
+</html>

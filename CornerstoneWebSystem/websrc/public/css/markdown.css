@@ -1,0 +1,1112 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-bold, .icon-italic, .icon-quote, .icon-unordered-list, .icon-ordered-list, .icon-link, .icon-image, .icon-play, .icon-music, .icon-contract, .icon-fullscreen, .icon-question, .icon-info, .icon-undo, .icon-redo, .icon-code, .icon-preview {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-bold:before {
+	content: "\e000";
+}
+.icon-italic:before {
+	content: "\e001";
+}
+.icon-quote:before {
+	content: "\e003";
+}
+.icon-unordered-list:before {
+	content: "\e004";
+}
+.icon-ordered-list:before {
+	content: "\e005";
+}
+.icon-link:before {
+	content: "\e006";
+}
+.icon-image:before {
+	content: "\e007";
+}
+.icon-play:before {
+	content: "\e008";
+}
+.icon-music:before {
+	content: "\e009";
+}
+.icon-contract:before {
+	content: "\e00a";
+}
+.icon-fullscreen:before {
+	content: "\e00b";
+}
+.icon-question:before {
+	content: "\e00c";
+}
+.icon-info:before {
+	content: "\e00d";
+}
+.icon-undo:before {
+	content: "\e00e";
+}
+.icon-redo:before {
+	content: "\e00f";
+}
+.icon-code:before {
+	content: "\e011";
+}
+.icon-preview:before {
+	content: "\e002";
+}
+/* BASICS */
+
+.CodeMirror {
+    height: 700px;
+    font-size: 14px;
+    color:#333;
+    margin-top:15px;
+}
+.CodeMirror-scroll {
+  /* Set scrolling behaviour here */
+  overflow: auto;
+}
+
+/* PADDING */
+
+.CodeMirror-lines {
+  padding: 4px 0; /* Vertical padding around content */
+}
+.CodeMirror pre {
+  padding: 0 4px; /* Horizontal padding of content */
+}
+
+.CodeMirror-scrollbar-filler {
+  background-color: white; /* The little square between H and V scrollbars */
+}
+
+/* CURSOR */
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid black;
+  z-index: 3;
+}
+/* Shown when moving in bi-directional text */
+.CodeMirror div.CodeMirror-secondarycursor {
+  border-left: 1px solid silver;
+}
+.CodeMirror.cm-keymap-fat-cursor div.CodeMirror-cursor {
+  width: auto;
+  border: 0;
+  background: #7e7;
+  z-index: 1;
+}
+/* Can style cursor different in overwrite (non-insert) mode */
+.CodeMirror div.CodeMirror-cursor.CodeMirror-overwrite {}
+
+/* DEFAULT THEME */
+
+.cm-s-paper .cm-keyword {color: #555;}
+.cm-s-paper .cm-atom {color: #7f8c8d;}
+.cm-s-paper .cm-number {color: #7f8c8d;}
+.cm-s-paper .cm-def {color: #00f;}
+.cm-s-paper .cm-variable {color: black;}
+.cm-s-paper .cm-variable-2 {color: #555;}
+.cm-s-paper .cm-variable-3 {color: #085;}
+.cm-s-paper .cm-property {color: black;}
+.cm-s-paper .cm-operator {color: black;}
+.cm-s-paper .cm-comment {color: #959595;}
+.cm-s-paper .cm-string {color: #7f8c8d;}
+.cm-s-paper .cm-string-2 {color: #f50;}
+.cm-s-paper .cm-meta {color: #555;}
+.cm-s-paper .cm-error {color: #f00;}
+.cm-s-paper .cm-qualifier {color: #555;}
+.cm-s-paper .cm-builtin {color: #555;}
+.cm-s-paper .cm-bracket {color: #997;}
+.cm-s-paper .cm-tag {color: #7f8c8d;}
+.cm-s-paper .cm-attribute {color: #7f8c8d;}
+.cm-s-paper .cm-header {color: #000;}
+.cm-s-paper .cm-quote {color: #888;}
+.cm-s-paper .cm-hr {color: #999;}
+.cm-s-paper .cm-link {color: #7f8c8d;}
+
+.cm-negative {color: #d44;}
+.cm-positive {color: #292;}
+.cm-header, .cm-strong {font-weight: bold;}
+.cm-em {font-style: italic;}
+.cm-link {text-decoration: underline;}
+
+.cm-invalidchar {color: #f00;}
+
+div.CodeMirror span.CodeMirror-matchingbracket {color: #0f0;}
+div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
+
+
+/* STOP */
+
+/* The rest of this file contains styles related to the mechanics of
+   the editor. You probably shouldn't touch them. */
+
+.CodeMirror {
+  position: relative;
+  overflow: hidden;
+}
+
+.CodeMirror-scroll {
+  /* 30px is the magic margin used to hide the element's real scrollbars */
+  /* See overflow: hidden in .CodeMirror, and the paddings in .CodeMirror-sizer */
+  margin-bottom: -30px; margin-right: -30px;
+  padding-bottom: 30px; padding-right: 30px;
+  height: 100%;
+  outline: none; /* Prevent dragging from highlighting the element */
+  position: relative;
+}
+.CodeMirror-sizer {
+  position: relative;
+}
+
+/* The fake, visible scrollbars. Used to force redraw during scrolling
+   before actuall scrolling happens, thus preventing shaking and
+   flickering artifacts. */
+.CodeMirror-vscrollbar, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler {
+  position: absolute;
+  z-index: 6;
+  display: none;
+}
+.CodeMirror-vscrollbar {
+  right: 0; top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.CodeMirror-hscrollbar {
+  bottom: 0; left: 0;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.CodeMirror-scrollbar-filler {
+  right: 0; bottom: 0;
+  z-index: 6;
+}
+
+.CodeMirror-lines {
+  cursor: text;
+}
+.CodeMirror pre {
+  /* Reset some styles that the rest of the page might have set */
+  -moz-border-radius: 0; -webkit-border-radius: 0; -o-border-radius: 0; border-radius: 0;
+  border-width: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: normal;
+  line-height: inherit;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+}
+.CodeMirror-wrap pre {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+.CodeMirror-linebackground {
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  z-index: 0;
+}
+
+.CodeMirror-linewidget {
+  position: relative;
+  z-index: 2;
+  overflow: auto;
+}
+
+.CodeMirror-widget {
+  display: inline-block;
+}
+
+.CodeMirror-wrap .CodeMirror-scroll {
+  overflow-x: hidden;
+}
+
+.CodeMirror-measure {
+  position: absolute;
+  width: 100%; height: 0px;
+  overflow: hidden;
+  visibility: hidden;
+}
+.CodeMirror-measure pre { position: static; }
+
+.CodeMirror div.CodeMirror-cursor {
+  position: absolute;
+  visibility: hidden;
+  border-right: none;
+  width: 0;
+}
+.CodeMirror-focused div.CodeMirror-cursor {
+  visibility: visible;
+}
+
+.CodeMirror-selected { background: #d9d9d9; }
+.CodeMirror-focused .CodeMirror-selected { background: #BDC3C7; }
+
+.cm-searching {
+  background: #ffa;
+  background: rgba(255, 255, 0, .4);
+}
+
+/* IE7 hack to prevent it from returning funny offsetTops on the spans */
+.CodeMirror span { *vertical-align: text-bottom; }
+
+@media print {
+  /* Hide the cursor when printing */
+  .CodeMirror div.CodeMirror-cursor {
+    visibility: hidden;
+  }
+}
+:-webkit-full-screen {
+  background: #f9f9f5;
+  padding: 0.5em 1em;
+  width: 100%;
+  height: 100%;
+}
+:-moz-full-screen {
+  padding: 0.5em 1em;
+  background: #f9f9f5;
+  width: 100%;
+  height: 100%;
+}
+.editor-wrapper {
+  font: 16px/1.62 "Helvetica Neue", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+  color: #2c3e50;
+}
+/* this is the title */
+.editor-wrapper input.title {
+  font: 18px "Helvetica Neue", "Xin Gothic", "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+  background: transparent;
+  padding: 4px;
+  width: 100%;
+  border: none;
+  outline: none;
+  opacity: 0.6;
+}
+.editor-toolbar {
+  position: relative;
+  opacity: 0.6;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.editor-toolbar:before, .editor-toolbar:after {
+  display: block;
+  content: ' ';
+  height: 1px;
+  background-color: #bdc3c7;
+  background: -moz-linear-gradient(45deg, #f9f9f9, #bdc3c7, #f9f9f9);
+  background: -webkit-linear-gradient(45deg, #f9f9f9, #bdc3c7, #f9f9f9);
+  background: -ms-linear-gradient(45deg, #f9f9f9, #bdc3c7, #f9f9f9);
+  background: linear-gradient(45deg, #f9f9f9, #bdc3c7, #f9f9f9);
+}
+.editor-toolbar:before {
+  margin-bottom: 8px;
+}
+.editor-toolbar:after {
+  margin-top: 8px;
+}
+.editor-wrapper input.title:hover, .editor-wrapper input.title:focus, .editor-toolbar:hover {
+  opacity: 0.8;
+}
+.editor-toolbar a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none !important;
+  color: #2c3e50 !important;
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.editor-toolbar a:hover, .editor-toolbar a.active {
+  background: #fcfcfc;
+  border-color: #95a5a6;
+}
+.editor-toolbar a:before {
+  line-height: 24px;
+}
+.editor-toolbar i.separator {
+  display: inline-block;
+  width: 0;
+  border-left: 1px solid #d9d9d9;
+  border-right: 1px solid white;
+  color: transparent;
+  text-indent: -10px;
+  margin: 0 6px;
+}
+.editor-toolbar a.icon-fullscreen {
+  position: absolute;
+  right: 0;
+}
+.editor-statusbar {
+  border-top: 1px solid #ece9e9;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #959694;
+  text-align: right;
+}
+.editor-statusbar span {
+  display: inline-block;
+  min-width: 4em;
+  margin-left: 1em;
+}
+.editor-statusbar .lines:before {
+  content: 'lines: ';
+}
+.editor-statusbar .words:before {
+  content: 'words: ';
+}
+.editor-preview {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 100%;
+  background: #f9f9f5;
+  z-index: 9999;
+  overflow: auto;
+  -webkit-transition: left 0.2s ease;
+  -moz-transition: left 0.2s ease;
+  -ms-transition: left 0.2s ease;
+  transition: left 0.2s ease;
+}
+.editor-preview-active {
+  left: 0;
+}
+.editor-preview > p {
+  margin-top: 0;
+}
+
+  
+  .markdown-body {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    line-height: 1.8;
+    color: #24292e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    word-wrap: break-word;
+  }
+  
+  .markdown-body .pl-c {
+    color: #6a737d;
+  }
+  
+  .markdown-body .pl-c1,
+  .markdown-body .pl-s .pl-v {
+    color: #005cc5;
+  }
+  
+  .markdown-body .pl-e,
+  .markdown-body .pl-en {
+    color: #6f42c1;
+  }
+  
+  .markdown-body .pl-smi,
+  .markdown-body .pl-s .pl-s1 {
+    color: #24292e;
+  }
+  
+  .markdown-body .pl-ent {
+    color: #22863a;
+  }
+  
+  .markdown-body .pl-k {
+    color: #d73a49;
+  }
+  
+  .markdown-body .pl-s,
+  .markdown-body .pl-pds,
+  .markdown-body .pl-s .pl-pse .pl-s1,
+  .markdown-body .pl-sr,
+  .markdown-body .pl-sr .pl-cce,
+  .markdown-body .pl-sr .pl-sre,
+  .markdown-body .pl-sr .pl-sra {
+    color: #032f62;
+  }
+  
+  .markdown-body .pl-v,
+  .markdown-body .pl-smw {
+    color: #e36209;
+  }
+  
+  .markdown-body .pl-bu {
+    color: #b31d28;
+  }
+  
+  .markdown-body .pl-ii {
+    color: #fafbfc;
+    background-color: #b31d28;
+  }
+  
+  .markdown-body .pl-c2 {
+    color: #fafbfc;
+    background-color: #d73a49;
+  }
+  
+  .markdown-body .pl-c2::before {
+    content: "^M";
+  }
+  
+  .markdown-body .pl-sr .pl-cce {
+    font-weight: bold;
+    color: #22863a;
+  }
+  
+  .markdown-body .pl-ml {
+    color: #735c0f;
+  }
+  
+  .markdown-body .pl-mh,
+  .markdown-body .pl-mh .pl-en,
+  .markdown-body .pl-ms {
+    font-weight: bold;
+    color: #005cc5;
+  }
+  
+  .markdown-body .pl-mi {
+    font-style: italic;
+    color: #24292e;
+  }
+  
+  .markdown-body .pl-mb {
+    font-weight: bold;
+    color: #24292e;
+  }
+  
+  .markdown-body .pl-md {
+    color: #b31d28;
+    background-color: #ffeef0;
+  }
+  
+  .markdown-body .pl-mi1 {
+    color: #22863a;
+    background-color: #f0fff4;
+  }
+  
+  .markdown-body .pl-mc {
+    color: #e36209;
+    background-color: #ffebda;
+  }
+  
+  .markdown-body .pl-mi2 {
+    color: #f6f8fa;
+    background-color: #005cc5;
+  }
+  
+  .markdown-body .pl-mdr {
+    font-weight: bold;
+    color: #6f42c1;
+  }
+  
+  .markdown-body .pl-ba {
+    color: #586069;
+  }
+  
+  .markdown-body .pl-sg {
+    color: #959da5;
+  }
+  
+  .markdown-body .pl-corl {
+    text-decoration: underline;
+    color: #032f62;
+  }
+  
+  .markdown-body .octicon {
+    display: inline-block;
+    vertical-align: text-top;
+    fill: currentColor;
+  }
+  
+  .markdown-body a {
+    background-color: transparent;
+  }
+  
+  .markdown-body a:active,
+  .markdown-body a:hover {
+    outline-width: 0;
+  }
+  
+  .markdown-body strong {
+    font-weight: inherit;
+  }
+  
+  .markdown-body strong {
+    font-weight: bolder;
+  }
+  
+  .markdown-body h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+  }
+  
+  .markdown-body img {
+    border-style: none;
+  }
+  
+  .markdown-body code,
+  .markdown-body kbd,
+  .markdown-body pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  .markdown-body hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+  }
+  
+  .markdown-body input {
+    font: inherit;
+    margin: 0;
+  }
+  
+  .markdown-body input {
+    overflow: visible;
+  }
+  
+  .markdown-body [type="checkbox"] {
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  .markdown-body * {
+    box-sizing: border-box;
+  }
+  
+  .markdown-body input {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  
+  .markdown-body a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  .markdown-body a:hover {
+    text-decoration: underline;
+  }
+  
+  .markdown-body strong {
+    font-weight: 600;
+  }
+  
+  .markdown-body hr {
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #dfe2e5;
+  }
+  
+  .markdown-body hr::before {
+    display: table;
+    content: "";
+  }
+  
+  .markdown-body hr::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  .markdown-body table {
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  
+  .markdown-body td,
+  .markdown-body th {
+    padding: 0;
+  }
+  
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .markdown-body h1 {
+    font-size: 32px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h2 {
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h3 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h4 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h5 {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .markdown-body h6 {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .markdown-body p {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .markdown-body blockquote {
+    margin: 0;
+  }
+  
+  .markdown-body ul,
+  .markdown-body ol {
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .markdown-body ol ol,
+  .markdown-body ul ol {
+    list-style-type: lower-roman;
+  }
+  
+  .markdown-body ul ul ol,
+  .markdown-body ul ol ol,
+  .markdown-body ol ul ol,
+  .markdown-body ol ol ol {
+    list-style-type: lower-alpha;
+  }
+  
+  .markdown-body dd {
+    margin-left: 0;
+  }
+  
+  .markdown-body code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+  }
+  
+  .markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 12px;
+  }
+  
+  .markdown-body .octicon {
+    vertical-align: text-bottom;
+  }
+  
+  .markdown-body .pl-0 {
+    padding-left: 0 !important;
+  }
+  
+  .markdown-body .pl-1 {
+    padding-left: 4px !important;
+  }
+  
+  .markdown-body .pl-2 {
+    padding-left: 8px !important;
+  }
+  
+  .markdown-body .pl-3 {
+    padding-left: 16px !important;
+  }
+  
+  .markdown-body .pl-4 {
+    padding-left: 24px !important;
+  }
+  
+  .markdown-body .pl-5 {
+    padding-left: 32px !important;
+  }
+  
+  .markdown-body .pl-6 {
+    padding-left: 40px !important;
+  }
+  
+  .markdown-body::before {
+    display: table;
+    content: "";
+  }
+  
+  .markdown-body::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+  
+  .markdown-body>*:first-child {
+    margin-top: 0 !important;
+  }
+  
+  .markdown-body>*:last-child {
+    margin-bottom: 0 !important;
+  }
+  
+  .markdown-body a:not([href]) {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .markdown-body .anchor {
+    float: left;
+    padding-right: 4px;
+    margin-left: -20px;
+    line-height: 1;
+  }
+  
+  .markdown-body .anchor:focus {
+    outline: none;
+  }
+  
+  .markdown-body p,
+  .markdown-body blockquote,
+  .markdown-body ul,
+  .markdown-body ol,
+  .markdown-body dl,
+  .markdown-body table,
+  .markdown-body pre {
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+  
+  .markdown-body hr {
+    height: 0.25em;
+    padding: 0;
+    margin: 24px 0;
+    background-color: #e1e4e8;
+    border: 0;
+  }
+  
+  .markdown-body blockquote {
+    padding: 0 1em;
+    color: #6a737d;
+    border-left: 0.25em solid #dfe2e5;
+  }
+  
+  .markdown-body blockquote>:first-child {
+    margin-top: 0;
+  }
+  
+  .markdown-body blockquote>:last-child {
+    margin-bottom: 0;
+  }
+  
+  .markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: solid 1px #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #959da5;
+  }
+  
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+  
+  .markdown-body h1 .octicon-link,
+  .markdown-body h2 .octicon-link,
+  .markdown-body h3 .octicon-link,
+  .markdown-body h4 .octicon-link,
+  .markdown-body h5 .octicon-link,
+  .markdown-body h6 .octicon-link {
+    color: #1b1f23;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+  
+  .markdown-body h1:hover .anchor,
+  .markdown-body h2:hover .anchor,
+  .markdown-body h3:hover .anchor,
+  .markdown-body h4:hover .anchor,
+  .markdown-body h5:hover .anchor,
+  .markdown-body h6:hover .anchor {
+    text-decoration: none;
+  }
+  
+  .markdown-body h1:hover .anchor .octicon-link,
+  .markdown-body h2:hover .anchor .octicon-link,
+  .markdown-body h3:hover .anchor .octicon-link,
+  .markdown-body h4:hover .anchor .octicon-link,
+  .markdown-body h5:hover .anchor .octicon-link,
+  .markdown-body h6:hover .anchor .octicon-link {
+    visibility: visible;
+  }
+  
+  .markdown-body h1 {
+    padding-bottom: 0.3em;
+    font-size: 2em;
+    border-bottom: 1px solid #eaecef;
+  }
+  
+  .markdown-body h2 {
+    padding-bottom: 0.3em;
+    font-size: 1.5em;
+    border-bottom: 1px solid #eaecef;
+  }
+  
+  .markdown-body h3 {
+    font-size: 1.25em;
+  }
+  
+  .markdown-body h4 {
+    font-size: 1em;
+  }
+  
+  .markdown-body h5 {
+    font-size: 0.875em;
+  }
+  
+  .markdown-body h6 {
+    font-size: 0.85em;
+    color: #6a737d;
+  }
+  
+  .markdown-body ul,
+  .markdown-body ol {
+    padding-left: 2em;
+  }
+  
+  .markdown-body ul ul,
+  .markdown-body ul ol,
+  .markdown-body ol ol,
+  .markdown-body ol ul {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  .markdown-body li {
+    word-wrap: break-all;
+  }
+  
+  .markdown-body li>p {
+    margin-top: 16px;
+  }
+  
+  .markdown-body li+li {
+    margin-top: 0.25em;
+  }
+  
+  .markdown-body dl {
+    padding: 0;
+  }
+  
+  .markdown-body dl dt {
+    padding: 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: 600;
+  }
+  
+  .markdown-body dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+  
+  .markdown-body table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  .markdown-body table th {
+    font-weight: 600;
+  }
+  
+  .markdown-body table th,
+  .markdown-body table td {
+    padding: 6px 13px;
+    border: 1px solid #dfe2e5;
+  }
+  
+  .markdown-body table tr {
+    background-color: #fff;
+    border-top: 1px solid #c6cbd1;
+  }
+  
+  .markdown-body table tr:nth-child(2n) {
+    background-color: #f6f8fa;
+  }
+  
+  .markdown-body img {
+    max-width: 100%;
+    box-sizing: content-box;
+    background-color: #fff;
+  }
+  
+  .markdown-body img[align=right] {
+    padding-left: 20px;
+  }
+  
+  .markdown-body img[align=left] {
+    padding-right: 20px;
+  }
+  
+  .markdown-body code {
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 85%;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+  }
+  
+  .markdown-body pre {
+    word-wrap: normal;
+  }
+  
+  .markdown-body pre>code {
+    padding: 0;
+    margin: 0;
+    font-size: 100%;
+    word-break: normal;
+    white-space: pre;
+    background: transparent;
+    border: 0;
+  }
+  
+  .markdown-body .highlight {
+    margin-bottom: 16px;
+  }
+  
+  .markdown-body .highlight pre {
+    margin-bottom: 0;
+    word-break: normal;
+  }
+  
+  .markdown-body .highlight pre,
+  .markdown-body pre {
+    padding: 16px;
+    overflow: auto;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+  }
+  
+  .markdown-body pre code {
+    display: inline;
+    max-width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    line-height: inherit;
+    word-wrap: normal;
+    background-color: transparent;
+    border: 0;
+  }
+  
+  .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+    color: #005cc5;
+    border-color: #005cc5;
+  }
+  
+  .markdown-body kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: solid 1px #d1d5da;
+    border-bottom-color: #c6cbd1;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #c6cbd1;
+  }
+  
+  .markdown-body :checked+.radio-label {
+    position: relative;
+    z-index: 1;
+    border-color: #0366d6;
+  }
+  
+  .markdown-body .task-list-item {
+    list-style-type: none;
+  }
+  
+  .markdown-body .task-list-item+.task-list-item {
+    margin-top: 3px;
+  }
+  
+  .markdown-body .task-list-item input {
+    margin: 0 0.2em 0.25em -1.6em;
+    vertical-align: middle;
+  }
+  
+  .markdown-body hr {
+    border-bottom-color: #eee;
+  }

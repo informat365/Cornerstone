@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="/image/favicon.png">
+    <link rel="stylesheet" type="text/css" href="./css/site.css">
+    <title>CORNERSTONE</title>
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body>
+
+<script type="text/javascript" src="/js/vue.js"></script>
+<script type="text/javascript" src="/js/ajax.js"></script>
+<script type="text/javascript" src="/js/site.js"></script>
+
+
+<script type="text/javascript">
+    var search=getSearchObject(window.location.href);
+    if(search.code){
+        setCookie('inviteCode',search.code);
+    }
+    var token=getCookie('token');
+    if(token==null){
+        window.location.href="/login.html";
+    }else{
+        window.location.href="/#/pm/index/dashboard"
+    }
+
+</script>
+  </body>
+</html>

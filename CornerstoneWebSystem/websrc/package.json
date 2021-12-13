@@ -1,0 +1,91 @@
+{
+  "name": "cornerstone",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "serve:faics": "vue-cli-service serve --mode faics",
+    "build": "vue-cli-service build",
+    "build:faics": "vue-cli-service build --mode faics",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fnando/sparkline": "^0.3.10",
+    "@hscmap/vue-window": "^2.2.4",
+    "@riophae/vue-treeselect": "^0.4.0",
+    "@xkeshi/vue-qrcode": "^1.0.0",
+    "ansi_up": "^3.0.0",
+    "bowser": "^1.9.4",
+    "d3": "^5.5.0",
+    "dhx-spreadsheet": "^3.0.3",
+    "dom-to-image": "^2.6.0",
+    "echarts": "^4.0.2",
+    "fastclick": "^1.0.6",
+    "iview": "^3.4.1",
+    "js-base64": "^2.4.8",
+    "jszip": "^3.7.1",
+    "popper.js": "^1.16.1",
+    "regenerator-runtime": "^0.13.3",
+    "spark-md5": "^3.0.1",
+    "v-contextmenu": "^2.8.0",
+    "v-hotkey": "^0.3.0",
+    "v-viewer": "^1.2.1",
+    "vant": "^2.4.6",
+    "vee-validate": "^2.2.10",
+    "vue": "^2.5.17",
+    "vue-clipboard2": "^0.2.1",
+    "vue-context-menu": "^2.0.6",
+    "vue-cropper": "^0.4.8",
+    "vue-drag-drop": "^1.1.4",
+    "vue-echarts": "^4.0.2",
+    "vue-grid-layout": "^2.3.3",
+    "vue-i18n": "^8.11.2",
+    "vue-image-lightbox": "^6.0.0",
+    "vue-lazyload": "^1.2.6",
+    "vue-router": "^3.0.1",
+    "vue-scrollto": "^2.17.1",
+    "vue-simple-uploader": "^0.7.6",
+    "vue2-dropzone": "^3.5.9",
+    "vuedraggable": "^2.16.0",
+    "xterm": "^4.2.0-vscode1",
+    "xterm-addon-fit": "^0.3.0",
+    "xterm-addon-search": "^0.3.0"
+  },
+  "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-service": "^3.8.4",
+    "@vue/eslint-config-prettier": "^3.0.1",
+    "babel-plugin-import": "^1.13.0",
+    "eslint": "^5.15.1",
+    "less": "^3.0.4",
+    "less-loader": "^4.1.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "plugin:vue/essential"
+    ],
+    "rules": {
+      "vue/no-parsing-error": [
+        2,
+        {
+          "x-invalid-end-tag": false
+        }
+      ]
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

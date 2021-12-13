@@ -1,0 +1,78 @@
+simditor .simditor-toolbar > ul > li > span.separator {
+    display: inline-block;
+    background: #cfcfcf;
+    width: 1px;
+    height: 18px;
+    margin: 11px 15px;
+    vertical-align: middle;
+  }
+  .simditor .simditor-toolbar > ul > li > .toolbar-item {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    outline: none;
+    color: #333333;
+    font-size: 11px;
+    line-height: 22px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+  }
+  .simditor .simditor-toolbar .toolbar-menu ul > li .menu-item{
+    padding:0;
+  }
+  .simditor-icon{
+    font-size:12px;
+  }
+  
+  .simditor-toolbar-noborder .simditor{
+    border:none;
+  }
+  .simditor-toolbar-noborder .simditor-toolbar{
+    border:none;
+  }
+
+.fixed-height-editor .simditor-body{
+    max-height: 200px !important;
+    min-height: 200px !important;
+    overflow: auto;
+  }
+
+
+.fixed-height-editor .simditor-body::-webkit-scrollbar{
+    width:4px;
+    height:4px;
+    background-color:transparent;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.fixed-height-editor .simditor-body::-webkit-scrollbar-track{
+    border-radius:0;
+    background-color:transparent;
+}
+.fixed-height-editor .simditor-body::-webkit-scrollbar-thumb{
+    border-radius:0;
+    background-color:#777;
+}
+
+.simditor .editor-style{
+  overflow-x: auto;
+}
+.richtext-body{
+    word-break: break-all;
+}
+.richtext-body .simditor-checklist li::before{
+    display: none;
+}
+
+.richtext-body .simditor-checklist > li::before{
+    width: 0 !important;
+    height: 0 !important;
+    background-image: none;
+    margin: 0;
+}
+.richtext-body .simditor-checklist{
+   	padding-left:0;
+}
+.richtext-body .simditor-checklist > li{
+    pointer-events: auto !important;
+}

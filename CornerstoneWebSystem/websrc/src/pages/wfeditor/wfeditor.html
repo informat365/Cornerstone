@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="favicon.ico">
+    <script>
+        function getCookie (name) {
+            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+            if (arr = document.cookie.match(reg)) {
+                return unescape(arr[2]);
+            } else {
+                return null;
+            }
+        }
+        if(getCookie('token')==null){
+            window.location.href="/login.html";
+        }
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="/css/simditor.css">
+    <link rel="stylesheet" type="text/css" href="/css/simditor-small.css">
+
+    <title>CORNERSTONE</title>
+    <style type="text/css">
+      .i-loading-box{
+        margin-top:300px;
+        font-size:30px;
+        color:#333;
+        font-weight: bold;
+        text-align: center;
+        position:fixed;
+        width:100vw;
+        height:100vh;
+        z-index:10;
+      }
+      .i-loading-box img{
+      	width:150px;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <div id="loading-box" class="i-loading-box">
+        <img src="/image/logo.png">
+    </div>
+    <div id="app">
+
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/simditor.js"></script>
+    <script src="/js/ajax.js"></script>
+    <script src="/js/draw2d.js"></script>
+
+  </body>
+</html>

@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="lib/lucene-queries-7.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-queryparser-7.4.0.jar"/>
 	<classpathentry kind="lib" path="lib/jazmin.jar"/>
+	<classpathentry kind="lib" path="lib/unboundid-ldapsdk-4.0.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
