@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk10">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/aws-java-sdk-core-1.11.770.jar"/>
+	<classpathentry kind="lib" path="lib/aws-java-sdk-kms-1.11.770.jar"/>
+	<classpathentry kind="lib" path="lib/aws-java-sdk-s3-1.11.770.jar"/>
+	<classpathentry kind="lib" path="lib/CornerstoneBizSystem.jar"/>
+	<classpathentry kind="lib" path="lib/CornerstoneLibrary-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-ext-tables-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-formatter-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/flexmark-util-0.26.4.jar"/>
+	<classpathentry kind="lib" path="lib/hutool-all-5.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.9.10.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.9.10.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.9.10.3.jar"/>
+	<classpathentry kind="lib" path="lib/jazmin.jar"/>
+	<classpathentry kind="lib" path="lib/jstl.jar"/>
+	<classpathentry kind="lib" path="lib/junit.jar"/>
+	<classpathentry kind="lib" path="lib/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="lib/pageoffice5.1.0.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
