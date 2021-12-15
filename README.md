@@ -29,5 +29,5 @@
 ## 一键安装
 
 ```
-
+$ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
 ```
