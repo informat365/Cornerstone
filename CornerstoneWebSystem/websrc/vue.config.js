@@ -74,10 +74,7 @@ module.exports = {
         },
         proxy: {
             '/p': {
-                // target: 'https://pm.itit.io',
-                // target: 'https://cs.cornerstone365.cn/',
                 target: 'http://127.0.0.1:8888',
-                // target: 'http://csxs.itit.io',
             },
         },
     },

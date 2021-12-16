@@ -82,7 +82,7 @@
 
         <Form ref="form" :rules="formRule" :model="formItem" label-position="top" style="margin-top:15px">
             <FormItem :label="$t('名称')" prop="name">
-                <Input :disabled="formItem.status==1&&formItem.version==2" style="width:500px" :placeholder="$t('公司名称')"
+                <Input  style="width:500px" :placeholder="$t('公司名称')"
                        v-model.trim="formItem.name"></Input>
             </FormItem>
 
