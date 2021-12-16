@@ -62,6 +62,7 @@ $ npm run serve
 $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
 ```
 * 网页验证是否部署成功: http://[ip]:8888
+* [操作指导](#guidance)
 
 ## 编译
 * 选择ant build.xml (CornerstoneBizSystem/build.xml、 CornerstoneWebSystem/build.xml)
