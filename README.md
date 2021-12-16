@@ -13,7 +13,20 @@
 
 - [创建数据库](docs/db/数据库初始化手册.md)
 
-
+- 本地数据库连接配置:<br>
+  Cornerstone/CornerstoneBizSystem/local.properties
+  ![localProperties.png](images/localProperties.png)
+- Biz服务启动类:<br>
+  Cornerstone/CornerstoneBizSystem/src/cornerstone/biz/CornerstoneBizSystem.java
+  ![bizRun.png](images/bizRun.png)
+- WEB服务启动类:<br>
+  Cornerstone/CornerstoneWebSystem/src/cornerstone/web/CornerstoneWebSystem.java
+  ![webRun.png](images/webRun.png)
+- Web前端目录:<br>
+  Cornerstone/CornerstoneWebSystem/websrc/<br>
+  ![websrcPackage.png](images/websrcPackage.png)
+- 本地启动:
+> 查看下面本地启动
 ## 项目目录结构描述
 ```
 │ Cornerstone
@@ -27,9 +40,10 @@
 ```
 
 ## 本地启动
-* 修改Cornerstone/CornerstoneBizSystem/local.properties数据库配置信息
-* 启动biz (Cornerstone/CornerstoneBizSystem/src/cornerstone/biz/CornerstoneBizSystem.java)
-* 启动web
+> 启动前先查看上手指南
+* 修改Biz服务local.properties数据库配置信息
+* 启动Biz服务
+* 启动web前端
 * 进入 Cornerstone/CornerstoneWebSystem/websrc 
   > 如果没有安装node.js 请先安装node.js https://nodejs.org/
 * npm i 
@@ -40,7 +54,6 @@
 * 查看Cornerstone版本号<br>
 ![goCsInfo.png](images/goCsInfo.png)<br>
 ![csInfo.png](images/csInfo.png)<br>
-* 本地启动完毕
 
 ## 一键自动部署
 
@@ -55,8 +68,10 @@ $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | 
 ![buildBizAnt.png](images/buildBizAnt.png)
 * 验证是否构造成功 验证文件：CornerstoneBizSystem/release/CornerstoneBizSystem.jaz
 * 编译WEB(CornerstoneBebSystem/websrc)
+````
 $ npm i
 $ npm run build
+````
 * ant构造web工程(等待biz ant构造完成)<br>
 ![buildWebAnt.png](images/buildWebAnt.png)
 * 验证是否构造成功 验证文件：CornerstoneWebSystem/release/CornerstoneWebSystem.war
@@ -70,7 +85,7 @@ $ tar -zxvf cshome.tar.gz -C /
 ````
 * 将CornerstoneBizSystem.jaz放在目录：/cshome/jazmin_server_jdk10/instance/CornerstoneBizSystem
 * 将CornerstoneWebSystem.war放在目录：/cshome/jazmin_server_jdk10/instance/CornerstoneWebSystem
-* 修改mysql连接信息: /cshome/jazmin_server_jdk10/instance/CornerstoneBizSystem/jazmin.js
+* 修改mysql连接配置: /cshome/jazmin_server_jdk10/instance/CornerstoneBizSystem/jazmin.js
 * 启动cornerstone
 ````
 $ cd /cshome/jazmin_server_jdk10/
