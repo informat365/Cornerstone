@@ -51,15 +51,14 @@
 ![npmRun.png](images/npmRun.png)
 * 登录页面 （默认账号密码 root ITITitit666）<br>
 ![login.png](images/login.png)<br>
-* 查看Cornerstone版本号<br>
-![goCsInfo.png](images/goCsInfo.png)<br>
-![csInfo.png](images/csInfo.png)<br>
+* [操作指导](#guidance)
 
 ## 一键自动部署
 
 ```
 $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
 ```
+* 网页验证是否部署成功: http://[ip]:8888
 
 ## 编译
 * 选择ant build.xml (CornerstoneBizSystem/build.xml、 CornerstoneWebSystem/build.xml)
@@ -87,13 +86,20 @@ $ tar -zxvf cshome.tar.gz -C /
 * 将CornerstoneWebSystem.war放在目录：/cshome/jazmin_server_jdk10/instance/CornerstoneWebSystem
 * 修改mysql连接配置: /cshome/jazmin_server_jdk10/instance/CornerstoneBizSystem/jazmin.js
 * 启动cornerstone
+* 网页验证是否部署成功: http://[ip]:8888
 ````
 $ cd /cshome/jazmin_server_jdk10/
 $ ./restartall.sh
 ````
+<a id="guidance"></a>
+## 操作指导
+> 社区: https://bbs.cornerstone365.cn/
 
-* 网页验证是否部署成功：http://[ip]:8888
+> 帮助文档：  https://www.cornerstone365.cn/doc/  
 
+> 上手视频： https://www.cornerstone365.cn/videos.html
+
+* 登录系统: http://[ip]:8888
 ## 联系我们
 * 深圳市基石协作科技有限公司
 * 地址：深圳市南山区粤海街道深圳湾生态园7B-812
