@@ -46,8 +46,11 @@
 * 启动web前端
 * 进入 Cornerstone/CornerstoneWebSystem/websrc 
   > 如果没有安装node.js 请先安装node.js https://nodejs.org/
-* npm i 
-* npm run serve<br>
+* 启动服务
+````
+$ npm i 
+$ npm run serve<br>
+````
 ![npmRun.png](images/npmRun.png)
 * 登录页面 （默认账号密码 root ITITitit666）<br>
 ![login.png](images/login.png)<br>
