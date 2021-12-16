@@ -49,7 +49,7 @@
 * 启动服务
 ````
 $ npm i 
-$ npm run serve<br>
+$ npm run serve
 ````
 ![npmRun.png](images/npmRun.png)
 * 登录页面 （默认账号密码 root ITITitit666）<br>
