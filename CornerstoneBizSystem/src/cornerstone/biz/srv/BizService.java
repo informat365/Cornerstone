@@ -1704,7 +1704,7 @@ public class BizService extends CommService {
                 old.license = license;
                 old.dueDate = liceneBean.expireDate;
                 old.maxMemberNum = liceneBean.maxUserNum;
-                old.name = liceneBean.companyName;
+//                old.name = liceneBean.companyName;
                 old.licenseId = liceneBean.id;
                 old.moduleList = BizUtil.convert(liceneBean.moduleList);
                 if (old.dueDate.before(new Date())) {
