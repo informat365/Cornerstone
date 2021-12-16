@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="CornerstoneWebSystem" basedir="." 
+<project name="CornerstoneWebSystem" basedir="."
 	xmlns:ivy="antlib:fr.jayasoft.ivy.ant"
 	default="all">
-	<!-- scp task-->   
+	<!-- scp task-->
 	<taskdef resource="net/sf/antcontrib/antlib.xml"/>
-	<!-- -->    
+	<!-- -->
 	<property name="project.root" value="${basedir}" />
 	<property file="build.properties" />
 	<!-- build no.-->
@@ -17,7 +17,7 @@
 	<property name="lib.dir" value="${project.root}/lib" />
 	<property name="webroot.dir" value="${project.root}/webroot" />
 	<property name="config.dir" value="${project.root}/config" />
-	
+
 	<!-- build dir -->
 	<property name="build.dir" value="${project.root}/build" />
 	<property name="build.lib.dir" value="${build.dir}/lib" />
@@ -47,10 +47,10 @@
 	<!-- compile java code -->
 	<!-- =================================================================== -->
 	<target name="build" description="build java" depends="init">
-		<javac destdir="${build.classes.dir}" 
-			source="1.8" target="1.8" 
-			debug="true" encoding="utf-8" 
-			deprecation="false" 
+		<javac destdir="${build.classes.dir}"
+			source="1.8" target="1.8"
+			debug="true" encoding="utf-8"
+			deprecation="false"
 			optimize="false"
 			failonerror="true">
 			<src path="${src.dir}" />
@@ -66,49 +66,49 @@
 				<include name="**/*" />
 			</fileset>
 			<manifest>
-				<attribute name="Implementation-Version" 
+				<attribute name="Implementation-Version"
 					value="build${release_date}"/>
-				<attribute name="Implementation-Title" value="${project.name}"/>			
+				<attribute name="Implementation-Title" value="${project.name}"/>
 			</manifest>
 		</jar>
 	</target>
-	
-	
-	
-	
+
+
+
+
 	<!-- =================================================================== -->
 	<!-- package footstone websystem -->
-	<!-- =================================================================== -->	
+	<!-- =================================================================== -->
 	<target name="package-dir" depends="jar">
 		<mkdir dir="${release.dir}/${project.name}" />
 		<mkdir dir="${release.dir}/${project.name}/WEB-INF" />
 		<mkdir dir="${release.dir}/${project.name}/WEB-INF/lib" />
-		<copy todir="${release.dir}/${project.name}/WEB-INF/lib">  
-			<fileset dir="${release.dir}" >  
-				<include name="${project.name}.jar"/>  
-			</fileset>  
+		<copy todir="${release.dir}/${project.name}/WEB-INF/lib">
+			<fileset dir="${release.dir}" >
+				<include name="${project.name}.jar"/>
+			</fileset>
 		</copy>
 		<copy todir="${release.dir}/${project.name}/WEB-INF/">
 			 <fileset dir="${config.dir}">
 		     	<include name="**/*" />
-		     </fileset>	
+		     </fileset>
 		</copy>
-		<copy todir="${release.dir}/${project.name}/WEB-INF/lib">  
+		<copy todir="${release.dir}/${project.name}/WEB-INF/lib">
 			 <fileset dir="${lib.dir}">
 			 	<include name="*.jar"/>
 				 <include name="*.lic" />
 				<exclude name="jazmin.jar"/>
 			 	<exclude name="junit-4.11.jar"/>
-			</fileset> 
+			</fileset>
 		</copy>
-		<copy todir="${release.dir}/${project.name}/">  
-		   <fileset dir="${webroot.dir}" >  
-		    <include name="**/*"/>  
-		   </fileset>  
-		</copy>  
+		<copy todir="${release.dir}/${project.name}/">
+		   <fileset dir="${webroot.dir}" >
+		    <include name="**/*"/>
+		   </fileset>
+		</copy>
 	</target>
 	<target name="package-war" depends="clean,package-dir">
-		<zip destfile="${release.dir}/${project.name}-1.0.war">
+		<zip destfile="${release.dir}/${project.name}.war">
 					<fileset dir="${release.dir}/${project.name}">
 						<include name="**/*" />
 					</fileset>
@@ -118,7 +118,7 @@
 	<!-- =================================================================== -->
 	<!-- deoloy to remote server -->
 	<!-- =================================================================== -->
-		
+
 	<target name="deploy" depends="clean,package-war">
 		<echo>deploy to ${deploy.dir}</echo>
 		<copy todir="${deploy.dir}">
@@ -127,11 +127,11 @@
 				</fileset>
 			</copy>
 
-	</target>	
-	
+	</target>
+
 	<!-- =================================================================== -->
 	<!-- 部署项目 发布jar包 -->
-	<!-- =================================================================== -->    
+	<!-- =================================================================== -->
 	<target name="all" depends="clean,package-war">
 		<echo>build all</echo>
 	</target>

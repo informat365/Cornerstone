@@ -86,11 +86,6 @@
             </manifest>
         </jar>
 
-        <copy todir="../CornerstoneBossSystem/lib">
-            <fileset dir="${release.dir}">
-                <include name="*.jar"/>
-            </fileset>
-        </copy>
         <copy todir="../CornerstoneWebSystem/lib">
             <fileset dir="${release.dir}">
                 <include name="*.jar"/>
@@ -113,7 +108,7 @@
                 <include name="*.jar"/>
             </fileset>
         </unzip>
-        <zip destfile="${release.dir}/${project.name}-1.0.jaz">
+        <zip destfile="${release.dir}/${project.name}.jaz">
             <fileset dir="${release.dir}/${project.name}">
                 <include name="**/*"/>
             </fileset>
