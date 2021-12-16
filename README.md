@@ -81,7 +81,9 @@ $ npm run build
 * 将CornerstoneBizSystem.jaz、CornerstoneWebSystem.war上传至linux系统
 ## Linux部署
 * 获取cs目录结构
+````
 $ curl -O http://install.cornerstone365.cn/github/install/cshome.tar.gz
+````
 * 解压cs目录至服务器根目录
 ````
 $ tar -zxvf cshome.tar.gz -C /
