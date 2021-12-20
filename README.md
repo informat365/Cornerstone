@@ -6,9 +6,7 @@
 
 * 操作系统centos7
 * 使用jdk10
-* 项目采用ant管理jar包和构建项目
-  
-- 数据库mysql5.7, 请安装mysql
+* 数据库mysql5.7, 请安装mysql
 
 ## 一键自动安装
 
