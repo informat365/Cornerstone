@@ -9,6 +9,14 @@
   
 - 数据库mysql5.7, 请安装mysql
 
+## 一键自动安装
+
+```
+$ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
+```
+* 网页验证是否部署成功: http://[ip]:8888
+* [操作指导](#guidance)
+
 ## 上手指南
 
 - [创建数据库](docs/db/数据库初始化手册.md)
@@ -54,14 +62,6 @@ $ npm run serve
 ![npmRun.png](images/npmRun.png)
 * 登录页面 （默认账号密码 root ITITitit666）<br>
 ![login.png](images/login.png)<br>
-* [操作指导](#guidance)
-
-## 一键自动部署
-
-```
-$ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
-```
-* 网页验证是否部署成功: http://[ip]:8888
 * [操作指导](#guidance)
 
 ## 编译
