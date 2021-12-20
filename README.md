@@ -10,6 +10,7 @@
 
 ## 一键自动安装
 
+需要root账号执行
 ```
 $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
 ```
