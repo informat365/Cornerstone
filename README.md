@@ -10,10 +10,11 @@
 
 ## 一键自动安装
 
-需要root账号执行
 ```
 $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
 ```
+* 需要root账号执行
+* 默认安装路径/cshome
 * 网页验证是否部署成功: http://[ip]:8888
 * [操作指导](#guidance)
 
