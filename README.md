@@ -4,7 +4,7 @@
 > 产品介绍：  https://www.cornerstone365.cn/cooperation.html#console
 
 ## 环境依赖
-
+* 硬件：4G或以上内存，至少10G硬盘(推荐100G或以上）
 * 操作系统：推荐Linux Centos7
 * 数据库：Mysql5.7或以上
 
@@ -13,7 +13,7 @@
 ```
 $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
 ```
-* 需要root账号执行,至少4G内存，10G硬盘
+* 需要root账号执行
 * 默认安装路径/cshome
 * 网页验证是否部署成功: http://[ip]:8888 默认账号：root 密码：ITITitit666
 * [操作指导](#guidance)
