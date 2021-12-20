@@ -5,9 +5,8 @@
 
 ## 环境依赖
 
-* 操作系统centos7
-* 使用jdk10
-* 数据库mysql5.7, 请安装mysql
+* 操作系统：推荐Linux Centos7
+* 数据库：Mysql5.7或以上
 
 ## 一键自动安装
 
