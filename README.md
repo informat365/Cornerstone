@@ -105,7 +105,6 @@ $ ./restartall.sh
 
 > 上手视频： https://www.cornerstone365.cn/videos.html
 
-* 登录系统: http://[ip]:8888
 ## 联系我们
 * 深圳市基石协作科技有限公司
 * 地址：深圳市南山区粤海街道深圳湾生态园7B-812
