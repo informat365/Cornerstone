@@ -15,7 +15,7 @@ $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | 
 ```
 * 需要root账号执行,至少4G内存，10G硬盘
 * 默认安装路径/cshome
-* 网页验证是否部署成功: http://[ip]:8888
+* 网页验证是否部署成功: http://[ip]:8888 默认账号：root 密码：ITITitit666
 * [操作指导](#guidance)
 
 ## 上手指南
