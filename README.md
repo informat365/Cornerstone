@@ -100,7 +100,6 @@ $ ./restartall.sh
 ````
 <a id="guidance"></a>
 ## 操作指导
-> 社区: https://bbs.cornerstone365.cn/
 
 > 帮助文档：  https://www.cornerstone365.cn/doc/  
 
