@@ -106,6 +106,7 @@ $ ./restartall.sh
 #### 任务
 ![task1.png](images/task1.png)
 ![task2.png](images/task2.png)
+![task3.png](images/task3.png)
 #### DevOps
 ![devops.png](images/devops.png)
 ### 流程审批
