@@ -98,12 +98,6 @@ $ tar -zxvf cshome.tar.gz -C /
 $ cd /cshome/jazmin_server_jdk10/
 $ ./restartall.sh
 ````
-<a id="guidance"></a>
-## 操作指导
-
-> 帮助文档：  https://www.cornerstone365.cn/doc/
-
-> 上手视频： https://www.cornerstone365.cn/videos.html
 
 ## 功能示例
 #### wiki
@@ -119,6 +113,14 @@ $ ./restartall.sh
 ![process2.png](images/process2.png)
 #### 报表
 ![report.png](images/report.png)
+
+<a id="guidance"></a>
+## 操作指导
+
+> 帮助文档：  https://www.cornerstone365.cn/doc/
+
+> 上手视频： https://www.cornerstone365.cn/videos.html
+> 
 ## 联系我们
 * 深圳市基石协作科技有限公司
 * 地址：深圳市南山区粤海街道深圳湾生态园7B-812
