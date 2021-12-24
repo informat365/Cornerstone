@@ -100,6 +100,10 @@ $ ./restartall.sh
 ````
 
 ## 功能示例
+#### 首页
+![process2.png](images/process2.png)
+#### 报表
+![report.png](images/report.png)
 #### wiki
 ![wiki1.png](images/wiki1.png)
 ![wiki2.png](images/wiki2.png)
@@ -111,9 +115,7 @@ $ ./restartall.sh
 ![devops.png](images/devops.png)
 ### 流程审批
 ![process1.png](images/process1.png)
-![process2.png](images/process2.png)
-#### 报表
-![report.png](images/report.png)
+
 
 <a id="guidance"></a>
 ## 操作指导
