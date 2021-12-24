@@ -66,7 +66,7 @@ $ npm run serve
 * [操作指导](#guidance)
 
 ## 编译
-* 选择ant build.xml (CornerstoneBizSystem/build.xml、 CornerstoneWebSystem/build.xml)
+* 选择ant build.xml (CornerstoneBizSystem/build.xml、 CornerstoneWebSystem/build.xml)<br>
 ![chooseAnt.png](images/chooseAnt.png)
 * ant构造Biz工程<br>
 ![buildBizAnt.png](images/buildBizAnt.png)
@@ -101,10 +101,24 @@ $ ./restartall.sh
 <a id="guidance"></a>
 ## 操作指导
 
-> 帮助文档：  https://www.cornerstone365.cn/doc/  
+> 帮助文档：  https://www.cornerstone365.cn/doc/
 
 > 上手视频： https://www.cornerstone365.cn/videos.html
 
+## 功能示例
+#### wiki
+![wiki1.png](images/wiki1.png)
+![wiki2.png](images/wiki2.png)
+#### 任务
+![task1.png](images/task1.png)
+![task2.png](images/task2.png)
+#### DevOps
+![devops.png](images/devops.png)
+### 流程审批
+![process1.png](images/process1.png)
+![process2.png](images/process2.png)
+#### 报表
+![report.png](images/report.png)
 ## 联系我们
 * 深圳市基石协作科技有限公司
 * 地址：深圳市南山区粤海街道深圳湾生态园7B-812
