@@ -42,6 +42,8 @@ $ curl -sL http://install.cornerstone365.cn/github/script/docker_build_cs_mysql.
   ![websrcPackage.png](images/websrcPackage.png)
 - 本地启动:
 > 查看下面本地启动
+## 配置微信公众号
+- [微信公众号配置](docs/wetchatoa/微信公众号配置.md)
 ## 项目目录结构描述
 ```
 │ Cornerstone
