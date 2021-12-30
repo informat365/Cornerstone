@@ -20,7 +20,7 @@ $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | 
 ````
 $ curl -sL http://install.cornerstone365.cn/github/script/docker_build_cs_mysql.sh | sudo bash -s 'youMysqlPassword'
 ````
-> 如不指定密码，默认使用uuid作为密码
+> 如不指定数据库密码，默认使用uuid作为数据库密码
 
 * [操作指导](#guidance)
 
