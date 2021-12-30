@@ -9,13 +9,19 @@
 * 数据库：Mysql5.7或以上
 
 ## 一键自动安装
-
+- 宿主机部署
 ```
 $ curl -sL http://install.cornerstone365.cn/github/script/install_cs_mysql.sh | sudo bash -
 ```
-* 需要root账号执行
-* 默认安装路径/cshome
-* 网页验证是否部署成功: http://[ip]:8888 默认账号：root 密码：ITITitit666
+> 需要root账号执行<br>
+> 默认安装路径/cshome
+> 网页验证是否部署成功: http://[ip]:8888 默认账号：root 密码：ITITitit666
+- docker部署
+````
+$ curl -sL http://install.cornerstone365.cn/github/script/docker_build_cs_mysql.sh | sudo bash -s 'youMysqlPassword'
+````
+> 如不指定密码，默认使用uuid作为密码
+
 * [操作指导](#guidance)
 
 ## 上手指南
