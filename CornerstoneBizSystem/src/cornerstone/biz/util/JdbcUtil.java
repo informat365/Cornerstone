@@ -54,7 +54,7 @@ public class JdbcUtil {
         }
         StringBuilder sbu = new StringBuilder();
         for (int i = 0; i < coll.size(); i++) {
-            if (0 == i) {
+            if (0 != i) {
                 sbu.append(",");
             }
             sbu.append("?");
