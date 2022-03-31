@@ -1,5 +1,6 @@
 package cornerstone.biz.dao;
 
+import cn.hutool.core.collection.CollUtil;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -332,11 +333,13 @@ public class BizDAO extends ITFDAO {
      * @param associateProjectIdList
      * @return
      */
-    public int updateProjectTaskDeleteStatus(int companyId,
+    public int  updateProjectTaskDeleteStatus(int companyId,
                                           int projectId,
                                           boolean isDelete,
                                           List<Integer> associateProjectIdList) {
-
+        if (CollUtil.isEmpty(associateProjectIdList)) {
+            return 0;
+        }
         StringBuilder sbu = new StringBuilder();
         sbu.append("update t_task set is_delete = ? where company_id = ? and project_id = ? and is_delete <> ? ");
         sbu.append(" and associate_project_id IN(")
