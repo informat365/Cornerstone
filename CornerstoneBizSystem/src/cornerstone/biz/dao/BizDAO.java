@@ -2940,6 +2940,9 @@ public class BizDAO extends ITFDAO {
      */
     public List<Task> getTaskByCompanyIdProjectIdAssociateProjectIdList(int companyId, int projectId,
                                                               List<Integer> associateProjectIdList) {
+        if (CollUtil.isEmpty(associateProjectIdList)) {
+            return Lists.newArrayList();
+        }
         return getList(Task.class,
                 QueryWhere.create().
                         where("company_id", companyId).
