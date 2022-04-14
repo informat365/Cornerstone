@@ -577,6 +577,9 @@ public class Task extends BaseDomain{
         
         @QueryField(foreignKeyFields="projectId",field="status")
         public Integer projectStatus;
+
+        @QueryField(foreignKeyFields="projectId",field="is_delete")
+        public Boolean projectIsDelete;
     }
     //
     @QueryDefine(domainClass=TaskDetailInfo.class)

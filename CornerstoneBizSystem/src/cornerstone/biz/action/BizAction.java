@@ -10719,6 +10719,7 @@ public interface BizAction {
             TaskQuery query = new TaskQuery();
             query.companyId = account.companyId;
             query.projectStatus = Project.STATUS_运行中;
+            query.projectIsDelete = false;
             query.objectTypeInList = BizUtil.deleteElement(objectTypeList, Task.OBJECTTYPE_项目清单);
             query.createAccountId = account.id;
             query.isFinish = false;
@@ -17191,6 +17192,7 @@ public interface BizAction {
             if (!bizService.isCompanySuperBoss(account)) {
                 bizService.checkCompanyPermission(account, Permission.ID_开启仪表盘模块);
             }
+            query.projectIsDelete = false;
             setupQuery(account, query);
             List<DashboardCardInfo> list = dao.getList(query);
             for (DashboardCardInfo e : list) {

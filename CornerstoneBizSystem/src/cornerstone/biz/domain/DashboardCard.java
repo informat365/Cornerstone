@@ -150,6 +150,9 @@ public class DashboardCard extends BaseDomain{
         public Integer type;
 
         public Integer projectId;
+
+        @QueryField(foreignKeyFields="projectId",field="is_delete")
+        public Boolean projectIsDelete;
         
         public Integer iterationId;
 
