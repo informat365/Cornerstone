@@ -18,4 +18,9 @@ public class BizExceptionCode{
 	public static final int CODE_OPENAPI认证失败 = 200001;
 	public static final int CODE_OPENAPI调用失败 = 200002;
 	public static final int CODE_OPENAPI业务错误 = 200003;
+	public static final int CODE_未知SSO回掉结果类型 = 200004;
+	public static final int CODE_SSO回掉结果为空 = 200005;
+	public static final int CODE_SSO账号获取失败 = 200006;
+	public static final int CODE_SSO回掉异常 = 200007;
+	
 }

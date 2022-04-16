@@ -20,6 +20,7 @@ import jazmin.driver.jdbc.smartjdbc.annotations.QueryField;
 public class OptLog extends BaseDomain{
     //
 	public static final String EVENT_ID_账号密码登录="账号密码登录";
+	public static final String EVENT_ID_SSO登录="SSO登录";
 	public static final String EVENT_ID_微信扫码登录="微信扫码登录";
 	public static final String EVENT_ID_手机验证码登录="手机验证码登录";
 	public static final String EVENT_ID_AD域账号登录="AD域账号登录";

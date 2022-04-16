@@ -18,6 +18,9 @@ public class GlobalConfig {
 	private static Logger logger=LoggerFactory.get(GlobalConfig.class);
 	//
 	public static String webUrl;//最后以/结尾
+	public static String ssoConfig;
+	public static String ssoLoginField;
+	
 	public static String pdfUrl;//最后以/结尾
 	public static boolean isPrivateDeploy;
 	public static String mysqlDBUrlParams;
@@ -168,6 +171,8 @@ public class GlobalConfig {
 //		if(logger.isInfoEnabled()){
 //			logger.info("setupConfig configs:"+dump());
 //		}
+		ssoConfig = getValue("sso.config");
+		ssoLoginField = getValue("sso.loginField");
 	}
 	//
 	public static void setValue(String name,String value){

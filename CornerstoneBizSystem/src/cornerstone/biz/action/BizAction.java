@@ -5,6 +5,7 @@ import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.CalendarScale;
 import biweekly.property.Classification;
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
@@ -160,6 +161,7 @@ import cornerstone.biz.domain.WikiPageChangeLog.WikiPageChangeLogInfo;
 import cornerstone.biz.domain.WikiPageChangeLog.WikiPageChangeLogQuery;
 import cornerstone.biz.domain.file.WpsFileInfo;
 import cornerstone.biz.domain.query.BizQuery;
+import cornerstone.biz.util.HttpRollback;
 import cornerstone.biz.domain.wx.WeixinAccount;
 import cornerstone.biz.domain.wx.WeixinOAuthToken;
 import cornerstone.biz.lucene.LuceneService;
@@ -265,6 +267,9 @@ public interface BizAction {
 
     @ApiDefine(value = "登录", params = {"用户名", "密码"}, resp = "用户登录结果")
     LoginResult login(String userName, String password);
+
+    @ApiDefine(value = "sso登录", resp = "sso登录结果")
+    LoginResult ssoLogin(String rollbackInfo);
 
     /**
      * 手机验证码登录
@@ -4087,6 +4092,62 @@ public interface BizAction {
             try {
                 AccountToken userToken = loginSuccess(account);
                 bizService.addOptLog(account, 0, "", OptLog.EVENT_ID_账号密码登录, "");
+                result.token = userToken.token;
+                result.errCode = 0;
+                result.errMsg = "SUCCESS";
+                return result;
+            } catch (Exception e) {
+                logger.error(e.getMessage(), e);
+                result.errCode = BizExceptionCode.CODE_系统繁忙;
+                result.errMsg = "系统繁忙，请稍后再试";
+                return result;
+            }
+        }
+
+        @Transaction
+        @Override
+        public LoginResult ssoLogin(String rollbackInfo) {
+            LoginResult result = new LoginResult();
+            String ssoLoginField = StrUtil.blankToDefault(GlobalConfig.ssoLoginField, "MobileNo");
+            Object callbackResult ;
+            try {
+                callbackResult = HttpRollback.callback(GlobalConfig.ssoConfig, rollbackInfo);
+            }catch (Exception e) {
+                logger.error("BizAction.ssoLogin.callback error", e);
+                result.errCode = BizExceptionCode.CODE_SSO回掉异常;
+                result.errMsg = "SSO回掉异常" + e.getMessage();
+                return result;
+            }
+            logger.info("BizAction.ssoLogin rollbackInfo:{}, callbackResult:{}", rollbackInfo, callbackResult);
+            if (null == callbackResult) {
+                result.errCode = BizExceptionCode.CODE_SSO回掉结果为空;
+                result.errMsg = "SSO回掉结果为空";
+                return result;
+            }
+            Account account ;
+            if ("UserName".equalsIgnoreCase(ssoLoginField)) {
+                account = dao.getAccountByUserName(String.valueOf(callbackResult));
+            } else if ("MobileNo".equalsIgnoreCase(ssoLoginField)) {
+                account = dao.getAccountByMobileNo(String.valueOf(callbackResult));
+            } else {
+                result.errCode = BizExceptionCode.CODE_未知SSO回掉结果类型;
+                result.errMsg = "未知SSO回掉结果类型";
+                return result;
+            }
+            if (null == account) {
+                logger.error("ssoLogin error, ssoCallBackResultType:{}, callbackResult:{}", ssoLoginField, callbackResult);
+                result.errCode = BizExceptionCode.CODE_SSO账号获取失败;
+                result.errMsg = "账号获取失败，请联系管理员确认";
+                return result;
+            }
+            
+            boolean isOk = checkLogin(result, account);
+            if (!isOk) {
+                return result;
+            }
+            try {
+                AccountToken userToken = loginSuccess(account);
+                bizService.addOptLog(account, 0, "", OptLog.EVENT_ID_SSO登录, "");
                 result.token = userToken.token;
                 result.errCode = 0;
                 result.errMsg = "SUCCESS";
