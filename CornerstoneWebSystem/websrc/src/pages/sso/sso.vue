@@ -24,8 +24,6 @@ export default {
             //获取查询串
             const query = uri.substring(questionMarkIdx + 1);
 
-            console.log('query---->', query);
-
             //并且符号分组
             const args = query.split("&");
             for(let i=0;i < args.length; i++){
@@ -68,7 +66,6 @@ export default {
 
                         this.saveLoginType(1)
                     } else {
-                        console.log('result.errMsg ----->', result.errMsg);
                         this.errorMsg = result.errMsg;
                     }
                 },
@@ -80,7 +77,6 @@ export default {
     },
     mounted() {
         const params = this.getUrlArgObject();
-        console.log('params----->', params);
         this.ssoLogin(params.callbackInfo, params.redirectUri);
 
 
