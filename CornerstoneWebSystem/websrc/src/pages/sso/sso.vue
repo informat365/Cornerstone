@@ -15,29 +15,37 @@ export default {
     },
     methods: {
         getUrlArgObject() {
-            var args=new Object();
+            const uri = location.href;
+            const questionMarkIdx = uri.indexOf("?");
+            const item = {};
+            if (0 > questionMarkIdx) {
+                return item;
+            }
             //获取查询串
-            var query=location.search.substring(1);
-            //在逗号处断开
-            var pairs=query.split(",");
-            for(var i=0;i<pairs.length;i++){
-                //查找name=value
-                var pos=pairs[i].indexOf('=');
-                //如果没有找到就跳过
-                if(pos==-1){
+            const query = uri.substring(questionMarkIdx + 1);
+
+            console.log('query---->', query);
+
+            //并且符号分组
+            const args = query.split("&");
+            for(let i=0;i < args.length; i++){
+                const arg = args[i];
+                const eqMarkIdx = arg.indexOf('=');
+                // 没有等于符号跳过
+                if(eqMarkIdx < 0){
                     continue;
                 }
                 //提取name
-                var argname=pairs[i].substring(0,pos);
+                const name = arg.substring(0, eqMarkIdx);
                 //提取value
-                var value=pairs[i].substring(pos+1);
+                const value= arg.substring(eqMarkIdx + 1);
                 //存为属性
-                args[argname]=unescape(value);
+                item[name]=unescape(value);
             }
             //返回对象
-            return args;
+            return item;
         },
-        ssoLogin(callbackInfo) {
+        ssoLogin(callbackInfo, redirectUri) {
             ajaxInvoke(
                 this.serverAddr + '/p/api/invoke/',
                 'BizAction.ssoLogin',
@@ -45,7 +53,19 @@ export default {
                 result => {
                     if (result.errCode == 0) {
                         setCookie('token', result.token);
-                        window.location.href = '/#/';
+                        if (redirectUri) {
+                            if (!redirectUri.startsWith('/')) {
+                                redirectUri = '/' + redirectUri;
+                            }
+                            if (redirectUri.startsWith('/#')) {
+                                window.location.href = redirectUri;
+                            } else {
+                                window.location.href = '/#' + redirectUri;
+                            }
+                        } else {
+                            window.location.href = '/#/';
+                        }
+
                         this.saveLoginType(1)
                     } else {
                         console.log('result.errMsg ----->', result.errMsg);
@@ -60,8 +80,8 @@ export default {
     },
     mounted() {
         const params = this.getUrlArgObject();
-        // this.errorMsg = '测试一下';
-        this.ssoLogin(params.callbackInfo);
+        console.log('params----->', params);
+        this.ssoLogin(params.callbackInfo, params.redirectUri);
 
 
     },
